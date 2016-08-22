@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="com.techstorm.msdk"
+    version="0.0.1">
+    
+    <name>MSDKPlugin</name>
+    <description>MSDKPlugin Description</description>
+    <author>TechStorm</author>
+    <license>Apache 2.0 License</license>
+    <!-- cordova -->
+    <engines>
+        <engine name="cordova" version=">=3.6.0" />
+        <engine name="cordova-plugman" version=">=4.3.0" />
+        <engine name="cordova-windows" version=">=4.2.0" />
+    </engines>
+    
+    <js-module src="www/msdk.js" name="MSDKPlugin">
+        <clobbers target="MSDK" />
+    </js-module>
+    
+    <platform name="android">
+        <framework src="com.android.support:support-v4:+" value="gradle" />
+        
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="MSDKPlugin">
+                <param name="android-package" value="com.techstorm.MSDKPlugin"/>
+            </feature>
+        </config-file>
+        
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity
+            android:name="com.tencent.msdk.NameAuthActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="sensor"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        
+        
+	        <!-- TODO SDK接入 QQ接入配置 START -->
+	        <activity
+	            android:name="com.tencent.tauth.AuthActivity"
+	            android:launchMode="singleTask"
+	            android:noHistory="true" >
+	            <intent-filter>
+	                <action android:name="android.intent.action.VIEW" />
+	                <category android:name="android.intent.category.DEFAULT" />
+	                <category android:name="android.intent.category.BROWSABLE" />
+	                <data android:scheme="tencent100703379" />
+	            </intent-filter>
+	        </activity>
+	        <activity
+	            android:name="com.tencent.connect.common.AssistActivity"
+	            android:configChanges="orientation|screenSize|keyboardHidden"
+	            android:screenOrientation="portrait"
+	            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+	        <!-- TODO SDK接入 QQ接入配置 END -->
+            <!-- TODO SDK接入 微信接入配置 START -->
+        <activity
+            android:name="io.cordova.hellocordova.wxapi.WXEntryActivity"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:label="WXEntryActivity"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:screenOrientation="portrait"
+            android:taskAffinity="io.cordova.hellocordova.diff" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="wx4e130355fa253702" />
+            </intent-filter>
+        </activity>
+        <!-- TODO SDK接入 微信接入配置 END -->
+        </config-file>
+        
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <!-- TODO SDK接入必须权限模块 START -->
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+            <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+            <uses-permission android:name="android.permission.GET_TASKS" />
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+            <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+            <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+            <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            
+            <!-- 登录上报时需要带设备名称, 通过蓝牙模块来获取设备名称 -->
+            <uses-permission android:name="android.permission.BLUETOOTH" />
+            <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+            
+            <!-- 可选的权限：异常上报系统log,XG也需要 -->
+            <uses-permission android:name="android.permission.READ_LOGS" />
+            
+            <!-- qxiaomi permission start -->
+            <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+            <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+            <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+            <uses-permission android:name="android.permission.RECORD_AUDIO" />
+            <uses-permission android:name="android.permission.VIBRATE" />
+            <!-- qxiaomi permission end -->
+            
+            <!-- 接入信鸽需要的其他权限 -->
+            <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+            <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+            <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+            <uses-permission android:name="android.permission.WAKE_LOCK" />
+            <uses-permission android:name="android.permission.VIBRATE" /> 
+            <!-- TODO SDK接入 必须权限模块 END -->
+        </config-file>
+        
+        <source-file src="src/android/libs/jg_filter_sdk_1.1.jar" target-dir="libs" framework="true" />
+        <source-file src="src/android/libs/mid-sdk-2.3.jar" target-dir="libs" framework="true" />
+        <source-file src="src/android/libs/MSDK_Android_2.14.4a_svn69363.jar" target-dir="libs" framework="true" />
+        <source-file src="src/android/libs/Xg_sdk_v2.46_20160531_1455.jar" target-dir="libs" framework="true" />
+        
+        <source-file src="src/android/libs/arm64-v8a/libWeGameSample.so" target-dir="libs/arm64-v8a" framework="true" />
+        <source-file src="src/android/libs/arm64-v8a/libBugly.so" target-dir="libs/arm64-v8a" framework="true" />
+        <source-file src="src/android/libs/arm64-v8a/libMSDK.so" target-dir="libs/arm64-v8a" framework="true" />
+        <source-file src="src/android/libs/arm64-v8a/libtpnsSecurity.so" target-dir="libs/arm64-v8a" framework="true" />
+        <source-file src="src/android/libs/arm64-v8a/libxguardian.so" target-dir="libs/arm64-v8a" framework="true" />
+        
+        <source-file src="src/android/libs/armeabi/libWeGameSample.so" target-dir="libs/armeabi" framework="true" />
+        <source-file src="src/android/libs/armeabi/libBugly.so" target-dir="libs/armeabi" framework="true" />
+        <source-file src="src/android/libs/armeabi/libMSDK.so" target-dir="libs/armeabi" framework="true" />
+        <source-file src="src/android/libs/armeabi/libtpnsSecurity.so" target-dir="libs/armeabi" framework="true" />
+        <source-file src="src/android/libs/armeabi/libxguardian.so" target-dir="libs/armeabi" framework="true" />
+        
+        <source-file src="src/android/libs/armeabi-v7a/libWeGameSample.so" target-dir="libs/armeabi-v7a" framework="true" />
+        <source-file src="src/android/libs/armeabi-v7a/libBugly.so" target-dir="libs/armeabi-v7a" framework="true" />
+        <source-file src="src/android/libs/armeabi-v7a/libMSDK.so" target-dir="libs/armeabi-v7a" framework="true" />
+        <source-file src="src/android/libs/armeabi-v7a/libtpnsSecurity.so" target-dir="libs/armeabi-v7a" framework="true" />
+        <source-file src="src/android/libs/armeabi-v7a/libxguardian.so" target-dir="libs/armeabi-v7a" framework="true" />
+        
+        <source-file src="src/android/libs/mips/libWeGameSample.so" target-dir="libs/mips" framework="true" />
+        <source-file src="src/android/libs/mips/libMSDK.so" target-dir="libs/mips" framework="true" />
+        <source-file src="src/android/libs/mips/libtpnsSecurity.so" target-dir="libs/mips" framework="true" />
+        <source-file src="src/android/libs/mips/libxguardian.so" target-dir="libs/mips" framework="true" />
+        
+        <source-file src="src/android/libs/mips64/libWeGameSample.so" target-dir="libs/mips64" framework="true" />
+        <source-file src="src/android/libs/mips64/libMSDK.so" target-dir="libs/mips64" framework="true" />
+        <source-file src="src/android/libs/mips64/libtpnsSecurity.so" target-dir="libs/mips64" framework="true" />
+        <source-file src="src/android/libs/mips64/libxguardian.so" target-dir="libs/mips64" framework="true" />
+        
+        <source-file src="src/android/libs/x86/libWeGameSample.so" target-dir="libs/x86" framework="true" />
+        <source-file src="src/android/libs/x86/libBugly.so" target-dir="libs/x86" framework="true" />
+        <source-file src="src/android/libs/x86/libMSDK.so" target-dir="libs/x86" framework="true" />
+        <source-file src="src/android/libs/x86/libtpnsSecurity.so" target-dir="libs/x86" framework="true" />
+        <source-file src="src/android/libs/x86/libxguardian.so" target-dir="libs/x86" framework="true" />
+        
+        <source-file src="src/android/libs/x86_64/libWeGameSample.so" target-dir="libs/x86_64" framework="true" />
+        <source-file src="src/android/libs/x86_64/libBugly.so" target-dir="libs/x86_64" framework="true" />
+        <source-file src="src/android/libs/x86_64/libMSDK.so" target-dir="libs/x86_64" framework="true" />
+        <source-file src="src/android/libs/x86_64/libtpnsSecurity.so" target-dir="libs/x86_64" framework="true" />
+        <source-file src="src/android/libs/x86_64/libxguardian.so" target-dir="libs/x86_64" framework="true" />
+        
+		<resource-file src="src/android/res/assets/msdkconfig.ini" target="assets" />
+
+        <source-file src="src/android/sources/com/example/wegame/PlatformTest.java" target-dir="src/com/example/wegame" />
+        <source-file src="src/android/sources/io/cordova/hellocordova/wxapi/WXEntryActivity.java" target-dir="src/io/cordova/hellocordova/wxapi/" />
+        <source-file src="src/android/sources/com/techstorm/MSDKHelper.java" target-dir="src/com/techstorm" />
+        <source-file src="src/android/sources/com/techstorm/MSDKPlugin.java" target-dir="src/com/techstorm" />
+        
+    </platform>
+    
+</plugin>
