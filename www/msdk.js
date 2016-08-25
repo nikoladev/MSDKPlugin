@@ -8,8 +8,8 @@ MSDK.prototype.qqLogin = function(success, fail) {
     cordova.exec(success, fail, "MSDKPlugin", "qqLogin", []);
 };
 
-MSDK.prototype.wechatLogin = function(success, fail) {
-    cordova.exec(success, fail, "MSDKPlugin", "wechatLogin", []);
+MSDK.prototype.wechatLogin = function(scanCodeLogin, success, fail) {
+    cordova.exec(success, fail, "MSDKPlugin", "wechatLogin", [scanCodeLogin]);
 };
 
 MSDK.prototype.logout = function(success, fail) {

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    <RelativeLayout 
+        android:background="#3997ee"
+        android:layout_width="match_parent"
+    	android:layout_height="45dp" >
+        <TextView 
+        android:text="腾讯游戏许可及服务协议"
+        android:textSize="16dp"
+        android:textColor="#ffffff"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content" />
+        
+        <ImageView 
+            android:layout_alignParentRight="true"
+            android:scaleType="center"
+            android:src="@drawable/msdk_name_auth_btn_close"
+            android:minWidth="40dp"
+            android:id="@+id/msdk_name_auth_webview_close"
+            android:layout_width="wrap_content"
+    		android:layout_height="match_parent"/>
+    </RelativeLayout>
+    
+    <com.tencent.smtt.sdk.WebView
+        android:background="#ffffff"
+        android:id="@+id/msdk_name_auth_webview"
+        android:layout_width="match_parent"
+    	android:layout_height="match_parent"/>
+
+</LinearLayout>
