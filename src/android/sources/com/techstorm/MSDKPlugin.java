@@ -2,6 +2,7 @@ package com.techstorm;
 
 
 import android.app.Activity;
+import android.util.Log;
 
 import com.tencent.msdk.api.CardRet;
 import com.tencent.msdk.api.LocationRet;
@@ -44,6 +45,7 @@ public class MSDKPlugin extends CordovaPlugin {
 
                         baseInfo.appVersionName = args.getString(5);
                         baseInfo.appVersionCode = args.getInt(6);
+                        Log.d("TRY", "using provided parameters");
                     } catch (JSONException e) {
                         //default
                         baseInfo.qqAppId = "100703379";
@@ -58,6 +60,7 @@ public class MSDKPlugin extends CordovaPlugin {
                         // 3、游戏如果在此传入了appVersionName（非空）和appVersionCode（正整数）如下，则灯塔和bugly上获取的版本号为2.7.1.271
                         baseInfo.appVersionName = "2.14.4";
                         baseInfo.appVersionCode = 68903;
+                        Log.d("CATCH", "using default parameters");
                     }
 
 
