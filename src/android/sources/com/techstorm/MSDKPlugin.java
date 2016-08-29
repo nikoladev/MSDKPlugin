@@ -128,16 +128,16 @@ public class MSDKPlugin extends CordovaPlugin {
                     if (MSDKHelper.getPlatform() == EPlatform.ePlatform_Weixin) {
                         command.success(loginReturnResponse(MSDKHelper.getLoginRecord()));
                     } else {
-//                        try {
-//                            boolean scanCodeLogin = args.getBoolean(0);
-//                            if (scanCodeLogin) {
-//                                MSDKHelper.wechatScanCodeLogin();
-//                            } else {
+                        try {
+                            boolean scanCodeLogin = args.getBoolean(0);
+                            if (scanCodeLogin) {
+                                MSDKHelper.wechatScanCodeLogin();
+                            } else {
                                 MSDKHelper.wechatNormalLogin();
-//                            }
-//                        } catch (JSONException e) {
-//                            // nothing
-//                        }
+                            }
+                        } catch (JSONException e) {
+                            // nothing
+                        }
                     }
                     command.success();
                 } else if (action.equals("logout")) {
