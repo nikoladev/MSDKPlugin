@@ -1,4 +1,4 @@
-package com.techstorm;
+package com.tencent.tmgp.luckykat.skychasers;
 
 
 import android.app.Activity;
@@ -46,18 +46,18 @@ public class MSDKPlugin extends CordovaPlugin {
                         baseInfo.appVersionCode = args.getInt(6);
                     } catch (JSONException e) {
                         //default
-                        baseInfo.qqAppId = "100703379";
-                        baseInfo.qqAppKey = "4578e54fb3a1bd18e0681bc1c734514e";
-                        baseInfo.wxAppId = "wxcde873f99466f74a";
-                        baseInfo.msdkKey = "5d1467a4d2866771c3b289965db335f4";
-                        baseInfo.offerId = "100703379";
-                        // TODO GAME 自2.7.1a开始游戏可在初始化msdk时动态设置版本号，灯塔和bugly的版本号由msdk统一设置
-                        // 1、版本号组成 = versionName + versionCode
-                        // 2、游戏如果不赋值给appVersionName（或者填为""）和appVersionCode(或者填为-1)，
-                        // msdk默认读取AndroidManifest.xml中android:versionCode="51"及android:versionName="2.7.1"
-                        // 3、游戏如果在此传入了appVersionName（非空）和appVersionCode（正整数）如下，则灯塔和bugly上获取的版本号为2.7.1.271
-                        baseInfo.appVersionName = "2.14.4";
-                        baseInfo.appVersionCode = 68903;
+//                        baseInfo.qqAppId = "100703379";
+//                        baseInfo.qqAppKey = "4578e54fb3a1bd18e0681bc1c734514e";
+//                        baseInfo.wxAppId = "wxcde873f99466f74a";
+//                        baseInfo.msdkKey = "5d1467a4d2866771c3b289965db335f4";
+//                        baseInfo.offerId = "100703379";
+//                        // TODO GAME 自2.7.1a开始游戏可在初始化msdk时动态设置版本号，灯塔和bugly的版本号由msdk统一设置
+//                        // 1、版本号组成 = versionName + versionCode
+//                        // 2、游戏如果不赋值给appVersionName（或者填为""）和appVersionCode(或者填为-1)，
+//                        // msdk默认读取AndroidManifest.xml中android:versionCode="51"及android:versionName="2.7.1"
+//                        // 3、游戏如果在此传入了appVersionName（非空）和appVersionCode（正整数）如下，则灯塔和bugly上获取的版本号为2.7.1.271
+//                        baseInfo.appVersionName = "2.14.4";
+//                        baseInfo.appVersionCode = 68903;
                     }
 
 

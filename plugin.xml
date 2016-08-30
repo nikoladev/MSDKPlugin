@@ -23,7 +23,7 @@
         
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="MSDKPlugin">
-                <param name="android-package" value="com.techstorm.MSDKPlugin"/>
+                <param name="android-package" value="com.tencent.tmgp.luckykat.skychasers.MSDKPlugin"/>
             </feature>
         </config-file>
         
@@ -44,7 +44,7 @@
                     <action android:name="android.intent.action.VIEW" />
                     <category android:name="android.intent.category.DEFAULT" />
                     <category android:name="android.intent.category.BROWSABLE" />
-                    <data android:scheme="tencent100703379" />
+                    <data android:scheme="tencent1105496342" />
                 </intent-filter>
             </activity>
             <activity
@@ -55,14 +55,14 @@
             <!-- TODO SDK接入 QQ接入配置 END -->
             <!-- TODO SDK接入 微信接入配置 START -->
             <activity
-                android:name="io.cordova.hellocordova.wxapi.WXEntryActivity"
+                android:name="com.tencent.tmgp.luckykat.skychasers.wxapi.WXEntryActivity"
                 android:excludeFromRecents="true"
                 android:exported="true"
                 android:label="WXEntryActivity"
                 android:launchMode="singleTop"
                 android:theme="@android:style/Theme.Translucent.NoTitleBar"
                 android:screenOrientation="portrait"
-                android:taskAffinity="io.cordova.hellocordova.diff" >
+                android:taskAffinity="com.tencent.tmgp.luckykat.skychasers.diff" >
                 <intent-filter>
                     <action android:name="android.intent.action.VIEW" />
                     <category android:name="android.intent.category.DEFAULT" />
@@ -76,7 +76,7 @@
                 android:exported="true"
                 android:label="WXQrCodeActivity"
                 android:launchMode="singleTask"
-                android:taskAffinity="io.cordova.hellocordova.diff"
+                android:taskAffinity="com.tencent.tmgp.luckykat.skychasers.diff"
                 android:configChanges="orientation|screenSize|keyboardHidden"
                 android:theme="@android:style/Theme.Light.NoTitleBar"
                 android:screenOrientation="portrait">
@@ -168,6 +168,7 @@
         <source-file src="src/android/libs/x86_64/libxguardian.so" target-dir="libs/x86_64" framework="true" />
         
         <source-file src="src/android/res/assets/msdkconfig.ini" target-dir="assets" />
+        <source-file src="src/android/res/assets/channel.ini" target-dir="assets" />
 
         <source-file src="src/android/res/anim/com_tencent_msdk_webview_titlebar_hide.xml" target-dir="res/anim" />
         <source-file src="src/android/res/anim/com_tencent_msdk_webview_titlebar_show.xml" target-dir="res/anim" />
@@ -337,12 +338,10 @@
         <source-file src="src/android/res/values/msdk_ad_dimens.xml" target-dir="res/values" />
         <source-file src="src/android/res/values/msdk_ad_strings.xml" target-dir="res/values" />
         <source-file src="src/android/res/values/msdk_name_auth_string.xml" target-dir="res/values" />
-        
 
-        <source-file src="src/android/sources/com/example/wegame/PlatformTest.java" target-dir="src/com/example/wegame" />
-        <source-file src="src/android/sources/io/cordova/hellocordova/wxapi/WXEntryActivity.java" target-dir="src/io/cordova/hellocordova/wxapi/" />
-        <source-file src="src/android/sources/com/techstorm/MSDKHelper.java" target-dir="src/com/techstorm" />
-        <source-file src="src/android/sources/com/techstorm/MSDKPlugin.java" target-dir="src/com/techstorm" />
+        <source-file src="src/android/sources/com/tencent/tmgp/luckykat/skychasers/wxapi/WXEntryActivity.java" target-dir="src/com/tencent/tmgp/luckykat/skychasers/wxapi/" />
+        <source-file src="src/android/sources/com/tencent/tmgp/luckykat/skychasers/MSDKHelper.java" target-dir="src/com/tencent/tmgp/luckykat/skychasers" />
+        <source-file src="src/android/sources/com/tencent/tmgp/luckykat/skychasers/MSDKPlugin.java" target-dir="src/com/tencent/tmgp/luckykat/skychasers" />
         
     </platform>
     
