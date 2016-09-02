@@ -1,4 +1,4 @@
-package com.techstorm;
+package com.tencent.tmgp.luckykat.skychasers;
 
 import com.tencent.msdk.api.LoginRet;
 import com.tencent.msdk.api.MsdkBaseInfo;
